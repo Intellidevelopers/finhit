@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlock Features</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .unlock-button {
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .unlocked {
+      background-color: #27ae60; /* Green color for unlocked state */
+      color: #fff;
+    }
+    .locked {
+      background-color: #e74c3c; /* Red color for locked state */
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Unlock Features</h1>
+  <input type="checkbox" id="unlockCheckbox"> <label for="unlockCheckbox">Unlock Features</label>
+  <button id="unlockButton" class="unlock-button locked" onclick="performAction()">Unlock</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  <script>
+    function performAction() {
+      var unlockCheckbox = document.getElementById('unlockCheckbox');
+      var unlockButton = document.getElementById('unlockButton');
+
+      if (unlockCheckbox.checked) {
+        // Perform the action if the checkbox is checked
+        Swal.fire('Success', 'Features unlocked successfully!', 'success');
+        // Change button color and text
+        unlockButton.classList.remove('locked');
+        unlockButton.classList.add('unlocked');
+        unlockButton.innerHTML = 'Features Unlocked';
+      } else {
+        // Show an error message using SweetAlert if the checkbox is not checked
+        Swal.fire('Error', 'Please check the "Unlock Features" checkbox first!', 'error');
+      }
+    }
+  </script>
+</body>
+</html>
